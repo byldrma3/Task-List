@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/owl.carousel.min.css">
+  <link href="../dist/output.css" rel="stylesheet">
+  <style>
+    .owl-prev, .owl-next{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 48px;
+      width: 48px;
+      background-color: rgba(21, 21, 21, 0.06)!important;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 300ms all;
+    }
+    .owl-next:hover, .owl-prev:hover{
+      background-color: rgba(21, 21, 21, 0.1)!important;
+    }
+    .owl-prev{
+      left: -58px;
+    }
+    .owl-next{
+      right: -58px;
+    }
+    a#scroll-btn {
+      position: absolute;
+      height: 24px;
+      width: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      margin: auto;
+      border-radius: 3em;
+    }
+    a#scroll-btn:before {
+      position: absolute;
+      content: "";
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 2px;
+      height: 4px;
+      width: 2px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 4px;
+      animation: move-down 2s infinite;
+    }
+    @keyframes move-down {
+      80% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(12px);
+        opacity: 0;
+      }
+    }
+    a#scroll-btn:after {
+      position: absolute;
+      content: "SCROLL";
+      display: block;
+      text-align: center;
+      left: -21px;
+      bottom: 25px;
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="bg-white font-metropolisRegular  border-gray-200 px-2 sm:px-8 py-5 rounded dark:bg-gray-800">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+        <a href="" class="flex items-center">
+            <span class="self-center text-2xl font-metropolisExBold whitespace-nowrap dark:text-white">Monoceros</span>
+            <span class="text-2xl font-metropolisExBold" style="color:#BCDCC4;">.</span>
+        </a>
+        <div class="flex md:order-2">
+            <button type="button" class="text-black bg-lgreen font-metropolisBold mr-3 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center"">Contact</button>
+            <button type="button" class="text-white bg-dgreen font-metropolisBold  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Buy</button>
+            <button data-collapse-toggle="mobile-menu-4" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-4" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+        <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
+          <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+            <li>
+              <a href="#" class="block py-2 pr-4 pl-3 font-metropolisSemBold text-textGrey hover:text-dgreen  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Overview</a>
+            </li>
+            <li>
+              <a href="#" class="block py-2 pr-4 pl-3 font-metropolisSemBold text-textGrey border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-dgreen md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Product</a>
+            </li>
+            <li>
+              <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex font-metropolisSemBold justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-textGrey border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-700 md:p-0 md:w-auto"><span>Version</span> <img src="./images/drop.svg" class="ml-2"></button>
+              <!-- Dropdown menu -->
+              <div id="dropdownNavbar" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block py-2 px-4 font-metropolisSemBold text-textGrey hover:bg-gray-100">Dashboard</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block py-2 px-4 font-metropolisSemBold text-textGrey hover:bg-gray-100">Settings</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block py-2 px-4 font-metropolisSemBold text-textGrey hover:bg-gray-100">Earnings</a>
+                    </li>
+                  </ul>
+                  <div class="py-1">
+                    <a href="#" class="block py-2 px-4 text-sm font-metropolisSemBold text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
+                  </div>
+              </div>
+          </li>
+            <li>
+              <a href="#" class="block py-2 pr-4 pl-3 font-metropolisSemBold text-textGrey border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-dgreen md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Informations</a>
+            </li>
+            <li>
+              <a href="#" class="block py-2 pr-4 pl-3 font-metropolisSemBold text-textGrey border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-dgreen md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Selection</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+  </header>
+
+  <section class=" h-[820px] w-full relative" style="background: url(./images/Background.svg);background-position: center;background-repeat: no-repeat; background-size: cover;">
+    <div class="w-[428px] ml-[168px] pt-[118px]">
+      <h1 class="text-dgreen font-bold font-Arvo text-[64px] leading-[72px]">Because Wings is for Pegasus</h1>
+      <p class="mt-6 font-metropolisRegular text-xl leading-8 text-textGrey">Now the difference between a unicorn and a pegasus is quite clear a unicorn has a horn which usually stores their magically powers while a pegasus can only fly with its gorgeous wings.</p>
+      <button type="button" class="text-black bg-lgreen font-metropolisBold  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-10 py-5 mt-6 text-center md:mr-0">Discover</button>
+    </div>
+    <div class="absolute bottom-[220px] text-center left-[55%] translate-x-[-55%]">
+      <a id="scroll-btn" class="font-metropolisBold" href="#section"></a>
+    </div>
+  </section>
+
+  <section id="section" class="flex relative justify-center items-center mx-[50px] mt-16 gap-8 ">
+
+    <a href="#" class="block py-16 px-8 max-w-[311px] h-[414px] bg-card rounded-lg text-center hover:bg-white hover:shadow-xl group hover:translate-y-[-20px] transition">
+      <div class="flex justify-center">
+        <img class="w-16 h-16" src="./images/printed.svg" alt="">
+      </div>
+      <h3 class="mt-6 font-metropolisExBold text-xl">3D PRINTED</h3>
+      <p class="mt-2 font-metropolisRegular text-textGrey">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+      <button class="bg-lgreen text-black rounded-full px-5 py-3 font-metropolisBold mt-6 opacity-0  group-hover:opacity-100 transition">More infos</button>
+    </a>
+    <a href="#" class="block py-16 px-8 max-w-[311px] h-[414px] bg-card rounded-lg text-center hover:bg-white hover:shadow-xl group hover:translate-y-[-20px] transition">
+      <div class="flex justify-center">
+        <img class="w-16 h-16" src="./images/unicorn.svg" alt="">
+      </div>
+      <h3 class="mt-6 font-metropolisExBold text-xl">BE UNICORN</h3>
+      <p class="mt-2 font-metropolisRegular text-textGrey">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+      <button class="bg-lgreen text-black rounded-full px-5 py-3 font-metropolisBold mt-6 opacity-0  group-hover:opacity-100 transition">More infos</button>
+    </a>
+
+    <a href="#" class="block py-16 px-8 max-w-[311px] h-[414px] bg-card rounded-lg text-center hover:bg-white hover:shadow-xl group hover:translate-y-[-20px] transition">
+      <div class="flex justify-center">
+        <img class="w-16 h-16" src="./images/magic.svg" alt="">
+      </div>
+      <h3 class="mt-6 font-metropolisExBold text-xl">LIKE MAGIC</h3>
+      <p class="mt-2 font-metropolisRegular text-textGrey">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+      <button class="bg-lgreen text-black rounded-full px-5 py-3 font-metropolisBold mt-6 opacity-0  group-hover:opacity-100 transition">More infos</button>
+    </a>
+
+    <a href="#" class="block py-16 px-8 max-w-[311px] h-[414px] bg-card rounded-lg text-center hover:bg-white hover:shadow-xl group hover:translate-y-[-20px] transition">
+      <div class="flex justify-center">
+        <img class="w-16 h-16" src="./images/strong.svg" alt="">
+      </div>
+      <h3 class="mt-6 font-metropolisExBold text-xl">VERY STRONG</h3>
+      <p class="mt-2 font-metropolisRegular text-textGrey">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+      <button class="bg-lgreen text-black rounded-full px-5 py-3 font-metropolisBold mt-6 opacity-0  group-hover:opacity-100 transition">More infos</button>
+    </a>
+
+   
+
+   
+    
+    
+  </section>
+  
+  <section class=" flex mt-[96px]">
+     <img src="./images/Illustration.svg" alt="">
+     <div class="mt-[47px]  w-[574px]">
+       <h1 class="text-dgreen font-bold font-Arvo text-[64px] leading-[72px]">Meet Monoceros the Unicorn</h1>
+       <span class="font-metropolisRegular text-[56px]">320,00 €</span>
+       <p class="font-metropolisRegular mt-6 text-textGrey text-xl">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+       <div class="flex mt-10">
+         <div class="mr-12">
+           <h3 class="font-metropolisExBold text-xl tracking-[0.1em]">Colors</h3>
+           <div class="mt-3 flex gap-4">
+            <input type="radio" class="w-8 h-8 bg-dgreen text-dgreen focus:ring-2 focus:ring-blue-300" style="background-image: none;" checked>
+            <input type="radio" class="w-8 h-8 bg-purple-600 text-purple-600 focus:ring-2 focus:ring-blue-300" style="background-image: none;" checked>
+            <input type="radio" class="w-8 h-8 bg-blue-500 text-blue-500 focus:ring-2 focus:ring-blue-300" style="background-image: none;" checked>
+            <input type="radio" class="w-8 h-8 bg-red-600 text-red-600 focus:ring-2 focus:ring-blue-300" style="background-image: none;" checked>
+           </div>
+         </div>
+         <div class="w-full">
+           <h3 class="font-metropolisExBold text-xl tracking-[0.1em]">QUANTITY</h3>
+           <input type="number" class="mt-3 border-2 border-input text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full px-5  text-center" placeholder="1" value="1">
+         </div>
+         
+       </div>
+       <button class="bg-dgreen text-white rounded-full px-10 py-5 font-metropolisBold text-xl mt-14">Buy</button>
+     </div>
+  </section>
+
+  <div class="border-t border-solid border-border mt-32 mb-20 mx-12 relative">
+    <img class="absolute left-2/4 top-[-32px] translate-x-[-50%]" src="./images/hr.svg" alt="">
+  </div>
+
+  <section class="grid grid-cols-2">
+    <div class="ml-[160px] mt-14">
+      <h1 class="text-dgreen font-bold font-Arvo text-[64px] leading-[72px]">Outlined Edition</h1>
+      <p class="font-metropolisRegular mt-6 text-textGrey text-xl">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p class="font-metropolisRegular mt-6 text-textGrey text-xl">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+    </div>
+    <div class="flex justify-center">
+      <img src="./images/Illustration.png" alt="">
+    </div>
+  </section>
+
+  <section class="mt-[60px]">
+    <div class="divider h-24" style="background-image: url(./images/Divider.png);background-size: cover;"></div>
+    <div class="bg-gradient-to-r from-[#F3F4F5] to-[#F8F8F9] py-20 text-center flex justify-center items-center flex-col">
+      <div class="w-[1120px] ">
+        <span class="font-metropolisExBold text-dgreen text-base tracking-[0.1em]">QUALITY</span>
+        <h1 class="font-metropolisExBold text-5xl mt-2">PREMIUM 3D PRINTER</h1>
+        <p class="font-metropolisRegular mt-4 text-textGrey text-xl">Now the difference between a unicorn and a pegasus is quite clear a unicorn has a horn which usually stores their magically powers while a pegasus can only fly with its gorgeous wings. Now the difference between a unicorn and a pegasus is quite clear a unicorn has a horn.</p>
+        <img class="mt-8" src="./images/Illustration2.png" alt="">
+      </div>
+      
+     
+    </div>
+    <div class="divider h-24" style="background-image: url(./images/Divider2.png);background-size: cover;"></div>
+  </section>
+
+  <section class="grid grid-cols-2 mt-12">
+    <div class="ml-[160px] mt-14">
+      <h1 class="text-dgreen font-bold font-Arvo text-[64px] leading-[72px]">Smooth Edition</h1>
+      <p class="font-metropolisRegular mt-6 text-textGrey text-xl">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+      <p class="font-metropolisRegular mt-6 text-textGrey text-xl">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+    </div>
+    <div class="flex justify-center">
+      <img src="./images/Illustration3.png" alt="">
+    </div>
+  </section>
+
+  <div class="border-t border-solid border-border mt-32 mb-20 mx-12 relative">
+    <img class="absolute left-2/4 translate-x-[-50%] top-[-32px]" src="./images/hr.svg" alt="">
+  </div>
+
+  <section class="grid grid-cols-2 mt-12">
+    
+    <div class="flex justify-center">
+      <img src="./images/lowpoly.png" alt="">
+    </div>
+    <div class="mr-[96px] mt-14">
+      <span class="font-metropolisExBold text-dgreen text-base tracking-[0.1em]">EFFECT</span>
+      <h1 class="font-metropolisExBold text-5xl mt-2">LOWPOLY</h1>
+      <p class="font-metropolisRegular mt-6 text-textGrey text-xl">Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus a sem. Nullam quis massa sit amet nibh viverra malesuada. Nunc sem lacus, accumsan quis, faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis.</p>
+      
+    </div>
+  </section>
+
+
+  <section class="mt-[60px]">
+    <div class="divider h-24" style="background-image: url(./images/Divider.png);background-size: cover;"></div>
+    <div class="bg-gradient-to-r from-[#F3F4F5] to-[#F8F8F9] py-20 text-center ">
+      <div class="flex justify-center items-center flex-col">
+        <div class="w-[1120px] ">
+        
+          <h1 class="text-dgreen font-bold font-Arvo text-[64px] leading-[72px]">Even more great stuff.</h1>
+          <p class="font-metropolisRegular mt-4 text-textGrey text-xl">Now the difference between a unicorn and a pegasus is quite clear a unicorn has a horn which usually stores their magically powers while a pegasus can only fly with its gorgeous wings.</p>
+          
+        </div>
+      </div>
+     
+      <div class="mx-[98px]  mt-14">
+        <div class="owl-carousel owl-theme">
+          <div class="item text-center mb-6 flex justify-center items-center flex-col py-12 px-4 group hover:bg-white hover:shadow-lg hover:rounded-xl ">
+            <img class="h-[280px]" style="width: 280px!important;"  src="./images/card.png" alt="">
+            <h1 class="font-metropolisExBold text-[28px] mt-10">Black</h1>
+            <button class="mt-3 border rounded-full border-border py-2 px-5 font-metropolisBold group-hover:bg-dgreen group-hover:text-white">Buy</button>
+          </div>
+          <div class="item text-center mb-6 flex justify-center items-center flex-col py-12 px-4 group hover:bg-white hover:shadow-lg hover:rounded-xl ">
+            <img class="h-[280px]" style="width: 280px!important;"  src="./images/card2.png" alt="">
+            <h1 class="font-metropolisExBold text-[28px] mt-10">EMERALD</h1>
+            <button class="mt-3 border rounded-full border-border py-2 px-5 font-metropolisBold group-hover:bg-dgreen group-hover:text-white">Buy</button>
+          </div>
+          <div class="item text-center mb-6 flex justify-center items-center flex-col py-12 px-4 group hover:bg-white hover:shadow-lg hover:rounded-xl ">
+            <img class="h-[280px]" style="width: 280px!important;"  src="./images/card3.png" alt="">
+            <h1 class="font-metropolisExBold text-[28px] mt-10">SILVER</h1>
+            <button class="mt-3 border rounded-full border-border py-2 px-5 font-metropolisBold group-hover:bg-dgreen group-hover:text-white">Buy</button>
+          </div>
+          <div class="item text-center mb-6 flex justify-center items-center flex-col py-12 px-4 group hover:bg-white hover:shadow-lg hover:rounded-xl ">
+            <img class="h-[280px]" style="width: 280px!important;"  src="./images/card4.png" alt="">
+            <h1 class="font-metropolisExBold text-[28px] mt-10">WHITE</h1>
+            <button class="mt-3 border rounded-full border-border py-2 px-5 font-metropolisBold group-hover:bg-dgreen group-hover:text-white">Buy</button>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <div class="divider h-24  bg-[#F7F7F8]" style="background-image: url(./images/Divider3.png);background-size: cover;"></div>
+  </section>
+  
+  <footer>
+    <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-5">
+      <div>
+        <a href="" class="flex items-center">
+          <span class="self-center text-2xl font-metropolisExBold whitespace-nowrap dark:text-white">Monoceros</span>
+          <span class="text-2xl font-metropolisExBold" style="color:#BCDCC4;">.</span>
+        </a>
+      </div>
+        <div>
+            <h2 class="mb-4 font-metropolisExBold text-dgreen text-base tracking-[0.1em]">Company</h2>
+            <ul class="text-footer font-metropolisRegular text-sm">
+                <li class="mb-2">
+                    <a href="#" class=" hover:underline">About</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="hover:underline">Careers</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="hover:underline">Brand Center</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="hover:underline">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="mb-4 font-metropolisExBold text-dgreen text-base tracking-[0.1em]">Support</h2>
+            <ul class="text-footer font-metropolisRegular text-sm">
+                <li class="mb-2">
+                    <a href="#" class=" hover:underline">About</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="hover:underline">Careers</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="hover:underline">Brand Center</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="hover:underline">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+          <h2 class="mb-4 font-metropolisExBold text-dgreen text-base tracking-[0.1em]">Store</h2>
+          <ul class="text-footer font-metropolisRegular text-sm">
+              <li class="mb-2">
+                  <a href="#" class=" hover:underline">About</a>
+              </li>
+              <li class="mb-2">
+                  <a href="#" class="hover:underline">Careers</a>
+              </li>
+              <li class="mb-2">
+                  <a href="#" class="hover:underline">Brand Center</a>
+              </li>
+              <li class="mb-2">
+                  <a href="#" class="hover:underline">Blog</a>
+              </li>
+          </ul>
+      </div>
+      <div>
+        <h2 class="mb-4 font-metropolisExBold text-dgreen text-base tracking-[0.1em]">Subscribe</h2>
+        <ul class="text-footer font-metropolisRegular text-sm">
+            <li class="mb-2">
+                <a href="#" class=" hover:underline">About</a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="hover:underline">Careers</a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="hover:underline">Brand Center</a>
+            </li>
+            <li class="mb-2">
+                <a href="#" class="hover:underline">Blog</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="py-6 px-4 border-t border-solid border-border md:flex justify-center items-center">
+        <span class="font-metropolisRegular text-gray-300 text-sm">@2021 Cornelio</span>
+    </div>
+</footer>
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/owl.carousel.min.js"></script>
+  <script src="../node_modules/flowbite/dist/flowbite.js"></script>
+  <script>
+    const nextIcon = `<img  class="h-[12px] w-[6px]" src="./images/next.svg">`
+    const prevIcon = `<img  class="h-[12px] w-[6px]" src="./images/prev.svg">`    
+    $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    navText: [
+            prevIcon,
+            nextIcon
+    ],
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+  </script>
+  
+</body>
+</html>

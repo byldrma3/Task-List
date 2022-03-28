@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+</head>
+<body>
+    <section class="draggable-elements">
+        <i class="uil uil-whatsapp draggable" draggable="true" style="color: #25d366 ;" id="whatsapp"></i>
+        <i class="uil uil-reddit-alien-alt draggable" draggable="true" style="color: #ff5700;" id="reddit-alien-alt"></i>
+        <i class="uil uil-facebook draggable" draggable="true" style="color: #3b5998;" id="facebook"></i>
+        <i class="uil uil-dribbble draggable" draggable="true" style="color: #ea4c89;" id="dribbble"></i>
+        <i class="uil uil-slack draggable" draggable="true" style="color: #49c39e;" id="slack"></i>
+    </section>
+    <section class="droppable-elements">
+        <div class="droppable" data-draggable-id="reddit-alien-alt"><span>Reddit</span></div>
+        <div class="droppable" data-draggable-id="dribbble"><span>Dribbble</span></div>
+        <div class="droppable" data-draggable-id="whatsapp"><span>Whatsapp</span></div>
+        <div class="droppable" data-draggable-id="slack"><span>Slack</span></div>
+        <div class="droppable" data-draggable-id="facebook"><span>Facebook</span></div>
+
+    </section>
+</body>
+</html>

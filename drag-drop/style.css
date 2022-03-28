@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F3F6FF;
+}
+.draggable-elements{
+    margin-bottom: 72px;
+    display: flex;
+    gap: 30px;
+}
+.draggable{
+    height: 52px;
+    width: 52px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: move;
+    transition: opacity 0.2;
+    font-size: 32px;
+}
+.draggable:hover{
+    opacity: .5;
+}
+.droppable-elements{
+    width: 900px;
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+.droppable{
+    height: 200px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: rgba(180,191,225, .4) 0px 24px 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed #1E2246;
+    transition: border-width 0.2s, transform 0.2s, background-color 0.4s;
+}
+.droppable i {
+    margin-right: 8px;
+    font-size: 0.75rem;
+}
+.droppable span{
+    color: #1E2246;
+    font-size: 24px;
+    pointer-events: none;
+}
+
+.droppable.draggable-hover {
+    border-width: 5px;
+    transform: scale(1.1);
+}
+.droppable.dropped{
+    border-style: solid;
+    color: #fff;
+}
+.droppable.dropped span{
+    color: #fff;
+}
+.droppable.dropped span{
+    font-size: 0.75rem;
+}
+.droppable.dropped i{
+    pointer-events: none;
+}
+.draggable.dragged{
+    user-select: none;
+    opacity: 0.1;
+    cursor: default;
+}
+.draggable.dragged:hover{
+    opacity: 0.1;
+}
